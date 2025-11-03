@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Dipto-portfolio/static/css/main.a38fc066.css",
-    "main.js": "/Dipto-portfolio/static/js/main.e57daae0.js",
+    "main.js": "/Dipto-portfolio/static/js/main.26f486f8.js",
     "static/js/415.4d6acbeb.chunk.js": "/Dipto-portfolio/static/js/415.4d6acbeb.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/Dipto-portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/portpoliobg.png": "/Dipto-portfolio/static/media/portpoliobg.84326232bd2a7c233b3b.png",
@@ -15,12 +15,12 @@
     "static/media/pre.svg": "/Dipto-portfolio/static/media/pre.d4812f51c8c80976eaab.svg",
     "index.html": "/Dipto-portfolio/index.html",
     "main.a38fc066.css.map": "/Dipto-portfolio/static/css/main.a38fc066.css.map",
-    "main.e57daae0.js.map": "/Dipto-portfolio/static/js/main.e57daae0.js.map",
+    "main.26f486f8.js.map": "/Dipto-portfolio/static/js/main.26f486f8.js.map",
     "415.4d6acbeb.chunk.js.map": "/Dipto-portfolio/static/js/415.4d6acbeb.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/Dipto-portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a38fc066.css",
-    "static/js/main.e57daae0.js"
+    "static/js/main.26f486f8.js"
   ]
 }

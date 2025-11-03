@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/Dipto-portfolio/static/css/main.a38fc066.css",
-    "main.js": "/Dipto-portfolio/static/js/main.982403ee.js",
-    "static/js/415.4d6acbeb.chunk.js": "/Dipto-portfolio/static/js/415.4d6acbeb.chunk.js",
-    "static/js/787.1ed0c42c.chunk.js": "/Dipto-portfolio/static/js/787.1ed0c42c.chunk.js",
+    "main.css": "/Dipto-portfolio/static/css/main.347b1b27.css",
+    "main.js": "/Dipto-portfolio/static/js/main.2a04776d.js",
+    "static/js/415.fc063c41.chunk.js": "/Dipto-portfolio/static/js/415.fc063c41.chunk.js",
+    "static/js/787.f6e65957.chunk.js": "/Dipto-portfolio/static/js/787.f6e65957.chunk.js",
     "static/media/portpoliobg.png": "/Dipto-portfolio/static/media/portpoliobg.84326232bd2a7c233b3b.png",
     "static/media/forest fire.png": "/Dipto-portfolio/static/media/forest fire.4e304cdb83e1c20f8d62.png",
     "static/media/Lms.png": "/Dipto-portfolio/static/media/Lms.be8f2b4f989afcd7bd9c.png",
@@ -11,16 +11,16 @@
     "static/media/ddos.png": "/Dipto-portfolio/static/media/ddos.f8886d6896044231f604.png",
     "static/media/HMS.png": "/Dipto-portfolio/static/media/HMS.66fd4ee4663561e90c2b.png",
     "static/media/profile-pic.png": "/Dipto-portfolio/static/media/profile-pic.5ec798129afedeff5916.png",
-    "static/media/Soumyajit_Behera-BIT_MESRA.pdf": "/Dipto-portfolio/static/media/Soumyajit_Behera-BIT_MESRA.f31c00c0623443fc6fa3.pdf",
+    "static/media/logo.png": "/Dipto-portfolio/static/media/logo.58d8d7492b90c8181b94.png",
     "static/media/pre.svg": "/Dipto-portfolio/static/media/pre.d4812f51c8c80976eaab.svg",
     "index.html": "/Dipto-portfolio/index.html",
-    "main.a38fc066.css.map": "/Dipto-portfolio/static/css/main.a38fc066.css.map",
-    "main.982403ee.js.map": "/Dipto-portfolio/static/js/main.982403ee.js.map",
-    "415.4d6acbeb.chunk.js.map": "/Dipto-portfolio/static/js/415.4d6acbeb.chunk.js.map",
-    "787.1ed0c42c.chunk.js.map": "/Dipto-portfolio/static/js/787.1ed0c42c.chunk.js.map"
+    "main.347b1b27.css.map": "/Dipto-portfolio/static/css/main.347b1b27.css.map",
+    "main.2a04776d.js.map": "/Dipto-portfolio/static/js/main.2a04776d.js.map",
+    "415.fc063c41.chunk.js.map": "/Dipto-portfolio/static/js/415.fc063c41.chunk.js.map",
+    "787.f6e65957.chunk.js.map": "/Dipto-portfolio/static/js/787.f6e65957.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a38fc066.css",
-    "static/js/main.982403ee.js"
+    "static/css/main.347b1b27.css",
+    "static/js/main.2a04776d.js"
   ]
 }

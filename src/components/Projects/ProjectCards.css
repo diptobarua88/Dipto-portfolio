@@ -1,0 +1,23 @@
+.project-card-img {
+  max-width: 500px;  /* Default for desktop */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 992px) {
+  .project-card-img {
+    max-width: 250px;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 576px) {
+  .project-card-img {
+    max-width: 200px;
+  }
+}

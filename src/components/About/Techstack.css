@@ -1,0 +1,31 @@
+.tech-icon {
+  transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.tech-icon:hover {
+  color: #FFD700; /* Gold */
+  transform: scale(1.4) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0% { transform: scale(1.4) translateY(-5px) rotate(0deg); }
+  25% { transform: scale(1.4) translateY(-5px) rotate(5deg); }
+  50% { transform: scale(1.4) translateY(-5px) rotate(-5deg); }
+  75% { transform: scale(1.4) translateY(-5px) rotate(5deg); }
+  100% { transform: scale(1.4) translateY(-5px) rotate(0deg); }
+}
+.tool-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool-label {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e5e5e5;  /* soft white/gray */
+  text-align: center;
+}

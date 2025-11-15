@@ -1,7 +1,6 @@
 /* ============================= */
-/* Modern Home2 Section Styling  */
+/* Home2 Section Styling          */
 /* ============================= */
-
 .home-about-section {
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   padding: 80px 0;
@@ -10,48 +9,26 @@
   overflow: hidden;
 }
 
-/* ============================= */
-/* Section Heading               */
-/* ============================= */
-.home-about-description h1 {
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 20px;
-  font-size: 2.5rem;
+/* Make Row column-reverse on mobile */
+.home-about-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-/* ============================= */
-/* Paragraph Text                */
-/* ============================= */
-.home-about-body {
-  font-size: 1.1rem;
-  line-height: 1.8rem;
-  color: #d8d8d8;
-  max-width: 700px;
-}
-
-/* ============================= */
-/* Highlight Text                */
-/* ============================= */
-.purple {
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
-}
-
-/* ============================= */
-/* Avatar                        */
-/* ============================= */
-.myAvtar img {
+/* Avatar image */
+.avatar-img {
   max-width: 260px;
   border-radius: 50%;
-  transition: transform 0.4s ease;
+  display: block;
+  margin: 0 auto;
   animation: floatAvatar 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.myAvtar img:hover {
-  transform: scale(1.08);
+.avatar-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #ff00ff, 0 0 60px #0072ff;
 }
 
 @keyframes floatAvatar {
@@ -60,65 +37,78 @@
   100% { transform: translateY(0); }
 }
 
-/* ============================= */
-/* Social Section                */
-/* ============================= */
-.home-about-social {
-  text-align: center;
-  margin-top: 50px;
+/* Intro Animated Heading */
+.intro-animated {
+  font-size: 2.6rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00ffff, #0072ff, #ff00ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ffff;
+  width: 0;
+  opacity: 0;
+  animation: bounceIn 0.6s ease forwards,
+             typing 2.5s steps(18) 0.6s forwards,
+             blink 0.7s step-end infinite 3.1s;
 }
 
-.home-about-social h1 {
-  font-size: 2em;
+/* Bounce entrance */
+@keyframes bounceIn {
+  0% { opacity: 0; transform: translateY(-40px); }
+  50% { opacity: 1; transform: scale(1.05) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 18ch; }
+}
+
+/* Cursor blink */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Highlight text */
+.purple, .highlight {
+  background: linear-gradient(90deg, #00ffff, #0072ff, #ff00ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #ffffff;
 }
 
-.home-about-social p {
-  font-size: 1rem;
-  color: #c7c7c7;
-  margin-bottom: 25px;
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .home-about-row {
+    flex-direction: column-reverse; /* avatar above text */
+    text-align: center;
+  }
+
+  .avatar-img {
+    margin-bottom: 30px;
+  }
+
+  .home-about-description h1.intro-animated {
+    font-size: 2em;
+    width: 15ch;
+    border-right: 2px solid #00ffff;
+  }
 }
 
-.home-about-social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+@media (max-width: 576px) {
+  .home-about-description h1.intro-animated {
+    font-size: 1.6em;
+    width: 12ch;
+    border-right: 2px solid #00ffff;
+  }
 
-/* ============================= */
-/* Social Icons                  */
-/* ============================= */
-.social-icons {
-  font-size: 2rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.home-about-social-links .social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  width: auto;
-  padding: 8px 12px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.05);
-  color: #00c6ff;
-  text-decoration: none;
-}
-
-.home-about-social-links .social-icons a span {
-  margin-left: 6px;
-  font-size: 0.9rem;
-  color: #ffffff;
-}
-
-.home-about-social-links .social-icons a:hover {
-  transform: scale(1.1);
-  color: #0072ff;
-  background: rgba(255,255,255,0.15);
+  .home-about-section {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
 }

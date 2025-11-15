@@ -1,0 +1,62 @@
+/* Transparent, clean background */
+.skills-container {
+  padding: 50px 0;
+  background: transparent !important;
+}
+
+/* Headings */
+.skills-heading {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Center and separate items */
+.skill-col {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* Wrapper for icon + label */
+.skill-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Crisp and colorful icons */
+.skill-icon {
+  font-size: 3.2rem;
+  opacity: 1 !important;
+  filter: none !important;
+
+  transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Hover glowing animation */
+.skill-icon:hover {
+  transform: scale(1.35) translateY(-5px);
+  color: #00ffff !important;
+  box-shadow: 0 0 15px #00ffff, 0 0 25px #0072ff;
+  animation: wiggle 0.4s ease-in-out infinite;
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+  0% { transform: scale(1.35) translateY(-5px) rotate(0deg); }
+  25% { transform: scale(1.35) translateY(-5px) rotate(3deg); }
+  50% { transform: scale(1.35) translateY(-5px) rotate(-3deg); }
+  75% { transform: scale(1.35) translateY(-5px) rotate(3deg); }
+  100% { transform: scale(1.35) translateY(-5px) rotate(0deg); }
+}
+
+/* Labels */
+.skill-label {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+}

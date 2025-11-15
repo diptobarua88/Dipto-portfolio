@@ -1,101 +1,96 @@
-import React, { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import logo from "../Assets/logo.png";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
+// src/components/Navbar.js
+import React, { useState, useEffect, useRef } from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import {
-  AiFillStar,
   AiOutlineHome,
-  AiOutlineFundProjectionScreen,
   AiOutlineUser,
+  AiOutlineFundProjectionScreen,
 } from "react-icons/ai";
 
-import { CgFileDocument } from "react-icons/cg";
+import logo from "../Assets/logo.png";
 
-function NavBar() {
-  const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
+function NavBar({ activeSection, scrollToSection }) {
+  const [sticky, setSticky] = useState(false);
+  const navRefs = useRef([]);
+  const [underlineStyle, setUnderlineStyle] = useState({});
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
+  // Sticky navbar
+  useEffect(() => {
+    const handleScroll = () => setSticky(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Update underline style
+  useEffect(() => {
+    const indexMap = ["home", "about", "skills", "projects", "contact"];
+    const activeIndex = indexMap.indexOf(activeSection);
+    if (navRefs.current[activeIndex]) {
+      const link = navRefs.current[activeIndex];
+      setUnderlineStyle({
+        left: link.offsetLeft + link.offsetWidth / 2 + "px",
+        width: link.offsetWidth + "px",
+      });
     }
-  }
-
-  window.addEventListener("scroll", scrollHandler);
+  }, [activeSection]);
 
   return (
     <Navbar
-      expanded={expand}
       fixed="top"
       expand="md"
-      className={navColour ? "sticky" : "navbar"}
+      className={sticky ? "navbar sticky" : "navbar"}
+      style={{ zIndex: 1030, position: "relative" }}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" />
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
+        {/* Logo */}
+        <Navbar.Brand
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection.home();
           }}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
+          <img src={logo} alt="logo" className="logo" />
+        </Navbar.Brand>
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ms-auto position-relative">
+            {["home", "about", "skills", "projects", "contact"].map(
+              (section, idx) => {
+                const icons = {
+                  home: <AiOutlineHome />,
+                  about: <AiOutlineUser />,
+                  skills: <AiOutlineFundProjectionScreen />, // you can replace with a different icon
+                  projects: <AiOutlineFundProjectionScreen />,
+                  contact: null,
+                };
+                const labels = {
+                  home: "Home",
+                  about: "About",
+                  skills: "Skills",
+                  projects: "Projects",
+                  contact: "Contact",
+                };
+                return (
+                  <Nav.Link
+                    key={section}
+                    ref={(el) => (navRefs.current[idx] = el)}
+                    href={`#${section}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection[section]();
+                    }}
+                    className={activeSection === section ? "active" : ""}
+                  >
+                    {icons[section]} {labels[section]}
+                  </Nav.Link>
+                );
+              }
+            )}
 
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-
-
-
-
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/diptobarua88/Dipto-portfolio"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item>
+            {/* Animated underline */}
+            <div className="nav-underline" style={underlineStyle}></div>
           </Nav>
         </Navbar.Collapse>
       </Container>

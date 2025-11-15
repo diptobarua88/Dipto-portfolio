@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { SiC, SiDjango, SiMysql, SiPostgresql } from "react-icons/si";
-import { DiPython, DiJava } from "react-icons/di";
+import { SiC, SiDjango, SiMysql } from "react-icons/si";
+import { DiPython } from "react-icons/di";
 import { FaDatabase } from "react-icons/fa";
 import "./Techstack.css"; // Make sure this CSS file is created
 
@@ -13,7 +13,7 @@ function Techstack() {
     fontSize: "3rem",
   };
 
-  const icons = [SiC, DiJava, DiPython, SiDjango, SiMysql, FaDatabase, SiPostgresql];
+  const icons = [ DiPython, SiDjango, SiMysql,SiC, FaDatabase];
 
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>

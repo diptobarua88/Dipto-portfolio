@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { Container } from "react-bootstrap";
+// src/components/Projects/Projects.js
+import React, { useEffect, useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import ddos from "../../Assets/Projects/ddos.png";
@@ -11,6 +12,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function Projects() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
@@ -42,15 +45,15 @@ function Projects() {
       title: "🔧 Arduino-Based Obstacle Avoiding Robot",
       description:
         "This project involves designing and implementing an Obstacle Avoiding Robot based on the Arduino Uno R3 microcontroller. The system uses an ultrasonic sensor mounted on a servo motor to detect obstacles in its surroundings by emitting and receiving sound waves. The L298N motor driver controls the movement of the DC motors based on the data processed by the Arduino. When an obstacle is detected within a threshold distance, the robot automatically determines an alternative path (left, right, or straight) to avoid collision. This project demonstrates real-time sensing, motor control, and autonomous navigation using embedded systems.",
+      ghLink: "https://github.com/diptobarua88/Arduino-Based-Obstacle-Avoiding-Robot",
     },
     {
-      imgPath: HMS ,
+      imgPath: HMS,
       title: "🩺 Hospital Management System",
       description:
         "A web-based application built with PHP and MySQL using XAMPP. It includes modules for patients, doctors, and staff, with features for appointments, billing, and medical record management. Designed for efficiency, usability, and secure data handling, it streamlines hospital operations and improves patient care.",
+      ghLink: "https://github.com/diptobarua88/Hospital-Management-System",
     },
-
-
   ];
 
   return (
@@ -64,13 +67,16 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
 
-        <div className="d-flex flex-column align-items-center mt-4">
+        <Row className="justify-content-center mt-4">
           {projects.map((project, index) => (
-            <div
+            <Col
               key={index}
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
-              className="w-100 mb-5"
+              md={4}   // 3 cards per row on desktop
+              sm={6}   // 2 cards per row on tablets
+              xs={12}  // 1 card per row on mobile
+              className="mb-4"
+              onMouseEnter={() => setActiveIndex(index)}
+              onMouseLeave={() => setActiveIndex(null)}
             >
               <ProjectCard
                 imgPath={project.imgPath}
@@ -79,10 +85,11 @@ function Projects() {
                 description={project.description}
                 ghLink={project.ghLink}
                 demoLink={project.demoLink}
+                isActive={activeIndex === index} // highlight/animation
               />
-            </div>
+            </Col>
           ))}
-        </div>
+        </Row>
       </Container>
     </Container>
   );

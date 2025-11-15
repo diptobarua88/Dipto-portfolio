@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { 
   SiVisualstudiocode, 
-  SiAndroidstudio, 
   SiKaggle, 
   SiGooglecolab, 
   SiAmazonaws 
@@ -12,7 +11,6 @@ import "./Techstack.css"; // same animation CSS
 function Toolstack() {
   const toolData = [
     { icon: SiVisualstudiocode, name: "VS Code", color: "#007ACC" },
-    { icon: SiAndroidstudio, name: "Android Studio", color: "#3DDC84" },
     { icon: SiKaggle, name: "Kaggle", color: "#20BEFF" },
     { icon: SiGooglecolab, name: "Google Colab", color: "#F9AB00" },
     { icon: SiAmazonaws, name: "Amazon SageMaker", color: "#FF9900" }

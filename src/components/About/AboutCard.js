@@ -25,8 +25,8 @@ function AboutCard() {
           }}
         >
           <p style={{ textAlign: "justify" }}>
-            Hello, I’m{" "}
-            <span style={{ color: "#FFD700", fontWeight: "600" }}>Dipto Barua</span>{" "}
+             I’m{" "}
+           
             from{" "}
             <span style={{ color: "#FFD700", fontWeight: "600" }}>
               Mirsarai, Chittagong, Bangladesh

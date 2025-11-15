@@ -21,7 +21,7 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span>
             </h1>
             <p className="home-about-body">
-              Hey there,This is Dipto Barua.I’m deeply passionate about working with <b className="purple">Machine Learning</b> and <b className="purple">Deep Learning</b> — building projects using <b className="purple">Python</b>, Django, and databases.
+              Hello there, this is <b className="purple">Dipto Barua</b>. <br /><br />I’m deeply passionate about working with <b className="purple">Machine Learning</b> & <b className="purple">Deep Learning,</b> and I enjoy building projects using <b className="purple">Python</b>, Django, and databases.
               <br /><br />
               I mostly work with real-world datasets in <b className="purple">Kaggle</b> and <b className="purple">Google Colab</b>, and sometimes code in <b className="purple">VS Code</b> for developing projects.
               <br /><br />

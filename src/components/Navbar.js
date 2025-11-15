@@ -11,6 +11,7 @@ import logo from "../Assets/logo.png";
 
 function NavBar({ activeSection, scrollToSection }) {
   const [sticky, setSticky] = useState(false);
+  const [expanded, setExpanded] = useState(false); // Mobile menu state
   const navRefs = useRef([]);
   const [underlineStyle, setUnderlineStyle] = useState({});
 
@@ -21,7 +22,7 @@ function NavBar({ activeSection, scrollToSection }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Update underline style
+  // Update underline style for active link
   useEffect(() => {
     const indexMap = ["home", "about", "skills", "projects", "contact"];
     const activeIndex = indexMap.indexOf(activeSection);
@@ -38,6 +39,8 @@ function NavBar({ activeSection, scrollToSection }) {
     <Navbar
       fixed="top"
       expand="md"
+      expanded={expanded} // Bind expanded state
+      onToggle={() => setExpanded(!expanded)}
       className={sticky ? "navbar sticky" : "navbar"}
       style={{ zIndex: 1030, position: "relative" }}
     >
@@ -48,12 +51,15 @@ function NavBar({ activeSection, scrollToSection }) {
           onClick={(e) => {
             e.preventDefault();
             scrollToSection.home();
+            setExpanded(false); // Close menu on logo click
           }}
         >
           <img src={logo} alt="logo" className="logo" />
         </Navbar.Brand>
 
+        {/* Toggle button */}
         <Navbar.Toggle aria-controls="navbar-nav" />
+
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ms-auto position-relative">
             {["home", "about", "skills", "projects", "contact"].map(
@@ -61,7 +67,7 @@ function NavBar({ activeSection, scrollToSection }) {
                 const icons = {
                   home: <AiOutlineHome />,
                   about: <AiOutlineUser />,
-                  skills: <AiOutlineFundProjectionScreen />, // you can replace with a different icon
+                  skills: <AiOutlineFundProjectionScreen />,
                   projects: <AiOutlineFundProjectionScreen />,
                   contact: null,
                 };
@@ -80,6 +86,7 @@ function NavBar({ activeSection, scrollToSection }) {
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection[section]();
+                      setExpanded(false); // ✅ Close menu on click
                     }}
                     className={activeSection === section ? "active" : ""}
                   >
